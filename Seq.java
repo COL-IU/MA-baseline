@@ -1051,9 +1051,9 @@ public class Seq{
     }
 
     public static void main(String[] args){
-	Hashtable<String, Seq> hash = new FastaReader().parseFasta(args[0]);
-	Seq s = hash.get("ecoli");
-	s.GC_AT_ratio(Integer.parseInt(args[1]));
+	Hashtable<String, Seq> hash = new FastaReader().parseFasta(args[0]); // fasta file
+	Seq s = hash.get(args[2]); // fasta header
+	s.GC_AT_ratio(Integer.parseInt(args[1])); // bin size
     }
 
     public int[] getATCGXArray(int start, int end, int[] atcgxArray){
@@ -1277,7 +1277,7 @@ public class Seq{
 	
 	
 	//System.out.println("SKIPPED\t" + skippedTriplets);
-	//Triplets.printCounts(tripletCounts);
+	Triplets.printCounts(tripletCounts);
 	return tripletCounts;
     }
 

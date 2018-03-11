@@ -2,23 +2,23 @@ import java.io.*;
 
 public class FindDinucleotide{
     
-    private Seq ecoli;
+    private Seq seq;
   
     public static void main(String[] args){
-	new FindDinucleotide(args[0]);
+	new FindDinucleotide(args[0],args[1]);
     }
   
-    public FindDinucleotide(String file){
-	this.ecoli = new FastaReader().parseFasta(file).get("ecoli");
+    public FindDinucleotide(String file, String header){
+	this.seq = new FastaReader().parseFasta(file).get(header);
 	this.process();
     }
     
     public void process(){
     
-	int[] ApN = this.ecoli.countDinucleotide('A');
-	int[] CpN = this.ecoli.countDinucleotide('C');
-	int[] GpN = this.ecoli.countDinucleotide('G');
-	int[] TpN = this.ecoli.countDinucleotide('T');
+	int[] ApN = this.seq.countDinucleotide('A');
+	int[] CpN = this.seq.countDinucleotide('C');
+	int[] GpN = this.seq.countDinucleotide('G');
+	int[] TpN = this.seq.countDinucleotide('T');
 	
 	printCounts('A', ApN);
 	printCounts('C', CpN);

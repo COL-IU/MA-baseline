@@ -78,8 +78,11 @@ public class Triplets{
     }	   
 
     public static void printCounts(int[] tripletCounts){
-	for(int i=0; i<tripletCounts.length;i++)
-	    System.out.println(index2Triplet(i) + "\t" + tripletCounts[i]);
+			//System.out.println("blah");
+			for(int i=0; i<tripletCounts.length;i++){
+				//System.out.println("blah");
+	    	System.out.println(index2Triplet(i) + "\t" + tripletCounts[i]);
+			}
     }
     
     //args[0] : fasta

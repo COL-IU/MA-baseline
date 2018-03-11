@@ -3,10 +3,13 @@ import java.util.*;
 
 public class CountRuns{
 
+// args[0] -> fasta file
+// args[1] -> ptt file
+// args[2] -> fasta header
     public static void main(String[] args){
-	Seq ecoliSeq = new FastaReader().parseFasta(args[0]).get("ecoli");
-	ArrayList<Gene> geneList = new PttParser().parse(args[1], "ecoli");
-	ArrayList<RunLengthGeneCounter> runLengthGeneCounterList = ecoliSeq.getRuns(geneList);
+	Seq seq = new FastaReader().parseFasta(args[0]).get(args[2]); 
+	ArrayList<Gene> geneList = new PttParser().parse(args[1], args[2]);
+	ArrayList<RunLengthGeneCounter> runLengthGeneCounterList = seq.getRuns(geneList);
 	for(int i=0; i<runLengthGeneCounterList.size();i++){
 	    runLengthGeneCounterList.get(i).print();
 	}
